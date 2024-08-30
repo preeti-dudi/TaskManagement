@@ -1,4 +1,5 @@
 npx create-react-app front-end --template typescript;
+cd front-end
 npm install axios react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
 
 mkdir back-end;
