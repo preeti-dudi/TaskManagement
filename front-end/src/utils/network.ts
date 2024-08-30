@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosR
 
 // Set up base Axios instance
 const api: AxiosInstance = axios.create({
-    baseURL: 'http://localhost:4000/api',
+    baseURL: 'https://task-management-back-end-theta.vercel.app/api',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -11,7 +11,7 @@ const api: AxiosInstance = axios.create({
 // Function to refresh the token
 const refreshToken = async () => {
     try {
-        const response = await axios.post('http://localhost:4000/api/auth/refresh-token', {
+        const response = await axios.post('https://task-management-back-end-theta.vercel.app/api/auth/refresh-token', {
             token: localStorage.getItem('refreshToken'),
         });
         localStorage.setItem('token', response.data.token);

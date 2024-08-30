@@ -13,7 +13,14 @@ const app = express();
 
 
 
-app.use(cors());
+
+const corsOptions = {
+  origin: 'http://localhost:3000, https://task-management-black-two.vercel.app/',
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
