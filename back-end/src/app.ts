@@ -5,13 +5,15 @@ import sequelize from './config/database';
 import authRoutes from './routes/authRoutes';
 import taskRoutes from './routes/taskRoutes';
 import errorHandler from './middleware/errorHandler';
-import path from 'path';
+// import path from 'path';
+import { setupSwagger } from './config/swagger';
 
 dotenv.config();
 
 const app = express();
 
 
+setupSwagger(app);
 
 
 const corsOptions = {
@@ -22,11 +24,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
 
 app.use(express.json());
 
