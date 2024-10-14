@@ -52,7 +52,7 @@ const AddTask= () => {
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
       </select>
-      <button type="submit">Add Task</button>
+      <button className='app-button' type="submit">Add Task</button>
     </form>
   );
 };

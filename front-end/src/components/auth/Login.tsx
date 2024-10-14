@@ -34,7 +34,7 @@ const Login = () => {
         placeholder="Password"
         required
       />
-      <button type="submit">Login</button>
+      <button className='app-button' type="submit">Login</button>
     </form>
   );
 };

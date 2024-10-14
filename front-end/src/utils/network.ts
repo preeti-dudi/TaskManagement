@@ -1,8 +1,11 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
+var URL = 'https://task-management-back-end-theta.vercel.app';
+URL = 'http://localhost:4000'
+
 // Set up base Axios instance
 const api: AxiosInstance = axios.create({
-    baseURL: 'https://task-management-back-end-theta.vercel.app/api',
+    baseURL: `${URL}/api`,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -11,7 +14,7 @@ const api: AxiosInstance = axios.create({
 // Function to refresh the token
 const refreshToken = async () => {
     try {
-        const response = await axios.post('https://task-management-back-end-theta.vercel.app/api/auth/refresh-token', {
+        const response = await axios.post(`${URL}/api/auth/refresh-token`, {
             token: localStorage.getItem('refreshToken'),
         });
         localStorage.setItem('token', response.data.token);
@@ -66,5 +69,16 @@ api.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
+export const fetchTasks = async () => {
+    const response = await api.get('/tasks');
+    return response.data;
+  };
+  
+  export const createTask = async (taskData: any) => {
+    const response = await api.post('/tasks', taskData);
+    return response.data;
+  };
+  
 
 export default api;

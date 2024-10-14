@@ -46,7 +46,7 @@ const Register = () => {
         placeholder="Password"
         required
       />
-      <button type="submit">Register</button>
+      <button className='app-button' type="submit">Register</button>
     </form>
   );
 };

@@ -74,7 +74,7 @@ const UpdateTask = () => {
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
       </select>
-      <button type="submit">Update Task</button>
+      <button className='app-button' type="submit">Update Task</button>
     </form>
   );
 };

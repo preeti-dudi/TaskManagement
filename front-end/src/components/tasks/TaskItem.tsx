@@ -50,17 +50,17 @@ const TaskItem = ({ task }: { task: Task; }) => {
           {task?.status}</p>
       <p><strong>Due Date:</strong> {new Date(task?.due_date).toLocaleDateString()}</p>
       <div className="task-actions">
-        <button onClick={handleEdit} className="edit-button">
+        <button onClick={handleEdit} className="app-button edit-button">
           <FontAwesomeIcon icon={faEdit} />
         </button>
-        <button onClick={handleDelete} className="delete-button">
+        <button onClick={handleDelete} className="app-button delete-button">
           <FontAwesomeIcon icon={faTrashAlt} />
         </button>
         {
           (task?.status === "Completed") ? 
           <></>
           :
-          <button onClick={handleChangeStatus} className="delete-button">
+          <button onClick={handleChangeStatus} className="app-button delete-button">
             <FontAwesomeIcon icon={(task?.status === "Completed") ? faHourglass :  (task?.status === "Pending" ? faSpinner: faCheck)} />
           </button>
 

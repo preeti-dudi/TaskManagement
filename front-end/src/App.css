@@ -1,3 +1,8 @@
+:root{
+  --primaryColor: #007bff;
+  --red: #dc3545;
+  --secondaryColor : #ccc;
+}
 
 form {
   display: flex;
@@ -6,26 +11,26 @@ form {
   width: 300px;
   margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--secondaryColor);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  background-color: var(--secondaryColor);
 }
 
 input,textarea,select {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid var(--secondaryColor);
   border-radius: 4px;
   font-size: 16px;
 }
 
-button {
+.app-button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
   border: none;
   border-radius: 4px;
   font-size: 16px;
@@ -34,7 +39,7 @@ button {
 }
 
 button:hover {
-  background-color: #004b9c;
+  background-color: var(--primaryColor);
 }
 
 
@@ -45,8 +50,8 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -61,7 +66,7 @@ button:hover {
 }
 
 .nav-link {
-  color: white;
+  color: var(--secondaryColor);
   text-decoration: none;
   font-size: 16px;
   padding: 10px 15px;
@@ -70,11 +75,11 @@ button:hover {
 }
 
 .nav-link:hover {
-  background-color: #004b9c;
+  background-color: var(--primaryColor);
 }
 .link {
-  color: white;
-  background-color: #007bff;
+  color: var(--secondaryColor);
+  background-color: var(--primaryColor);
   text-decoration: none;
   font-size: 16px;
   padding: 10px 15px;
@@ -132,15 +137,15 @@ button:hover {
 
 .edit-button:hover,
 .delete-button:hover {
-  background-color: white;
+  background-color: var(--secondaryColor);
 }
 
 .edit-button {
-  color: #007bff; 
+  color: var(--primaryColor); 
 }
 
 .delete-button {
-  color: #dc3545; /* Red */
+  color: var(--red); /* Red */
 }
 
 .sort-options {
@@ -161,6 +166,6 @@ button:hover {
   margin-left: 10px;
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--secondaryColor);
   font-size: 16px;
 }
