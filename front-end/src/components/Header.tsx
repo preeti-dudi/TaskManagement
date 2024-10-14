@@ -31,7 +31,7 @@ const Header = () => {
                 authenticated ?
                 <div className="navbar">
                     <Link to="/tasks" className="nav-link">My Tasks</Link>
-                    <button onClick={handleLogout} className="nav-link">Logout</button>
+                    <button onClick={handleLogout} className="app-button nav-link">Logout</button>
                 </div>
                 :
                 <div className="navbar">
