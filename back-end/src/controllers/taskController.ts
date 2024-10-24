@@ -1,31 +1,65 @@
 import { Request, Response } from 'express';
 import Task from '../models/task';
+import Subtask from '../models/subtask';
 import { AuthorisedRequest } from '../middleware/authMiddleware';
 
 
 
 export const createTask = async (req: AuthorisedRequest, res: Response) => {
-  try {
-    const { title, description, status, due_date } = req.body;
-    const userId = req.user?.id;
+  const {
+    title,
+    description,
+    color,
+    icon,
+    scheduledDate,
+    repeatFrequency,
+    repeatInterval,
+    repeatEndDate,
+    timeType,
+    startTime,
+    endTime,
+    reminder,
+    tag,
+    subtasks,
+    userId, // The ID of the user who is creating the task
+  } = req.body;
 
-    const task = await Task.create({
+  try {
+    // Create the task associated with a user
+    const newTask = await Task.create({
       title,
       description,
-      status,
-      due_date,
-      userId,
+      color,
+      icon,
+      scheduledDate,
+      repeatFrequency,
+      repeatInterval,
+      repeatEndDate,
+      timeType,
+      startTime,
+      endTime,
+      reminder,
+      tag,
+      userId, // Associate the task with a user
     });
 
-    res.status(201).json(task);
+    // Create subtasks if provided
+    if (subtasks && subtasks.length > 0) {
+      subtasks.forEach(async (subtask: any) => {
+        await Subtask.create({ title: subtask?.title, taskId: newTask?.id });
+      });
+    }
+
+    res.status(201).json({ message: 'Task created successfully', newTask });
   } catch (error) {
-    res.status(500).json({ message: 'Error creating task', error });
+    console.error(error);
+    res.status(500).json({ error: 'Error creating task' });
   }
 };
 
 export const getTasks = async (req: AuthorisedRequest, res: Response) => {
   try {
-    const userId = req.user?.id;
+    const userId = req.userId;
     // Get order by and direction from query parameters
     const orderBy = req.query.orderBy as string || 'due_date'; // default to due_date
     const direction = req.query.direction === 'desc' ? 'DESC' : 'ASC'; // default to ASC
@@ -38,7 +72,8 @@ export const getTasks = async (req: AuthorisedRequest, res: Response) => {
 
     const tasks = await Task.findAll({
       where: { userId },
-      order: [[orderBy, direction]], // Add order clause
+      include: Subtask,
+      order: [[orderBy, direction]],
     });
     res.status(200).json(tasks);
   } catch (error) {
@@ -49,7 +84,7 @@ export const getTasks = async (req: AuthorisedRequest, res: Response) => {
 export const getTask = async (req: AuthorisedRequest, res: Response) => {
   try {
     const taskId = req.params.id;
-    const userId = req.user?.id;
+    const userId = req.userId;
 
     const task = await Task.findOne({ where: { id: taskId, userId } });
     if (!task) {
@@ -65,14 +100,13 @@ export const updateTask = async (req: AuthorisedRequest, res: Response) => {
   try {
     const { title, description, status, due_date } = req.body;
     const taskId = req.params.id;
-    const userId = req.user?.id;
+    const userId = req.userId;
 
     const task = await Task.findOne({ where: { id: taskId, userId } });
     if (!task) {
       return res.status(404).json({ message: 'Task not found' });
     }
 
-    await task.update({ title, description, status, due_date });
     res.status(200).json(task);
   } catch (error) {
     res.status(500).json({ message: 'Error updating task', error });
@@ -82,7 +116,7 @@ export const updateTask = async (req: AuthorisedRequest, res: Response) => {
 export const deleteTask = async (req: AuthorisedRequest, res: Response) => {
   try {
     const taskId = req.params.id;
-    const userId = req.user?.id;
+    const userId = req.userId;
 
     const task = await Task.findOne({ where: { id: taskId, userId } });
     if (!task) {

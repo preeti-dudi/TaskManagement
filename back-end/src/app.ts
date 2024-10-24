@@ -16,13 +16,14 @@ const app = express();
 setupSwagger(app);
 
 
-const corsOptions = {
-  origin: 'http://localhost:3000, https://task-management-black-two.vercel.app/',
-  credentials: true,
-  optionsSuccessStatus: 200
-};
+// const corsOptions = {
+//   origin: 'http://localhost:3000',
+//   //  'https://task-management-black-two.vercel.app/',
+//   credentials: true,
+//   optionsSuccessStatus: 200
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // app.use(express.static(path.join(__dirname, 'public')));
 

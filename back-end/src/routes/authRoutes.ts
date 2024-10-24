@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /register:
+ * /api/auth/register:
  *   post:
  *     summary: Register a new user
  *     tags: [Authentication]
@@ -28,7 +28,7 @@ const router = express.Router();
  *                 description: The user's username.
  *               email:
  *                 type: string
- *                 description: The user's username.
+ *                 description: The user's email.
  *               password:
  *                 type: string
  *                 description: The user's password.
@@ -42,7 +42,7 @@ router.post('/register', register);
 
 /**
  * @swagger
- * /refresh-token:
+ * /api/auth/refresh-token:
  *   post:
  *     summary: Refresh the authentication token
  *     tags: [Authentication]
@@ -66,7 +66,7 @@ router.post('/refresh-token', tokenRefresh);
 
 /**
  * @swagger
- * /login:
+ * /api/auth/login:
  *   post:
  *     summary: Login a user
  *     tags: [Authentication]
@@ -77,9 +77,9 @@ router.post('/refresh-token', tokenRefresh);
  *           schema:
  *             type: object
  *             properties:
- *               username:
+ *               email:
  *                 type: string
- *                 description: The user's username.
+ *                 description: The user's email.
  *               password:
  *                 type: string
  *                 description: The user's password.

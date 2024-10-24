@@ -30,8 +30,15 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
-
+    
+    if (!email) {
+      return res.status(404).json({ message: 'Email is required' });
+    }
+    if (!password) {
+      return res.status(404).json({ message: 'Password is required' });
+    }
+    
+    const user = await User.findOne({ where: { email: email } });
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
@@ -48,9 +55,9 @@ export const login = async (req: Request, res: Response) => {
       expiresIn: '7d',
     });
 
-    res.status(200).json({ token, refreshToken });
+    return res.status(200).json({ token, refreshToken });
   } catch (error) {
-    res.status(500).json({ message: 'Error logging in', error });
+    return res.status(500).json({ message: 'Error logging in', error: error });
   }
 };
 

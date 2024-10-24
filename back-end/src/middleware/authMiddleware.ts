@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 export interface AuthorisedRequest extends Request {
-  user?: {id : number}; 
+  userId : number; 
 }
 
 const authMiddleware = (req: AuthorisedRequest, res: Response, next: NextFunction) => {
@@ -14,11 +14,12 @@ const authMiddleware = (req: AuthorisedRequest, res: Response, next: NextFunctio
   
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!);
-    req.user = decoded as {id:number};
+    console.log(token);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as {id:number};
+    req.userId = decoded.id;
     next();
   } catch (error) {
-    res.status(401).json({ message: 'Token is not valid' });
+    res.status(401).json({ message: 'Token is invalid', error });
   }
 };
 

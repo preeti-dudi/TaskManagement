@@ -34,18 +34,44 @@ router.use(authMiddleware);
  *         description:
  *           type: string
  *           description: The description of the task.
- *         status:
+ *         color:
  *           type: string
- *           description: The status of the task (e.g., "pending", "completed").
- *         due_date:
+ *           description: The color associated with the task.
+ *         icon:
  *           type: string
- *           format: date-time
- *           description: The due date of the task.
+ *           description: The icon associated with the task.
+ *         scheduledDate:
+ *           type: string
+ *           format: date
+ *         repeatFrequency:
+ *           type: string
+ *           enum: [none, daily, weekly, monthly]
+ *         repeatInterval:
+ *           type: integer
+ *           description: Interval for the repeating task.
+ *         repeatEndDate:
+ *           type: string
+ *           format: date
+ *         timeType:
+ *           type: string
+ *           enum: [period, point]
+ *         startTime:
+ *           type: string
+ *           format: time
+ *         endTime:
+ *           type: string
+ *           format: time
+ *         reminder:
+ *           type: boolean
+ *           description: Indicates if a reminder is set.
+ *         tag:
+ *           type: string
+ *           description: Tag associated with the task.
  */
 
 /**
  * @swagger
- * /tasks:
+ * /api/tasks:
  *   post:
  *     summary: Create a new task
  *     tags: [Tasks]
@@ -73,7 +99,7 @@ router.post('/', createTask);
 
 /**
  * @swagger
- * /tasks:
+ * /api/tasks:
  *   get:
  *     summary: Retrieve a list of tasks
  *     tags: [Tasks]
@@ -95,7 +121,7 @@ router.get('/', getTasks);
 
 /**
  * @swagger
- * /tasks/{id}:
+ * /api/tasks/{id}:
  *   get:
  *     summary: Get a task by ID
  *     tags: [Tasks]
@@ -124,7 +150,7 @@ router.get('/:id', getTask);
 
 /**
  * @swagger
- * /tasks/{id}:
+ * /api/tasks/{id}:
  *   put:
  *     summary: Update a task by ID
  *     tags: [Tasks]
@@ -161,7 +187,7 @@ router.put('/:id', updateTask);
 
 /**
  * @swagger
- * /tasks/{id}:
+ * /api/tasks/{id}:
  *   delete:
  *     summary: Delete a task by ID
  *     tags: [Tasks]

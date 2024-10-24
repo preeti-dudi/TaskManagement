@@ -1,0 +1,200 @@
+/* Home.css */
+
+/* General Container Styles */
+.home-container {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  /* Welcome Section */
+  .welcome-section {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    animation: fadeIn 0.5s ease;
+  }
+  
+  /* Welcome Heading */
+  .welcome-section h1 {
+    font-size: 48px;
+    color: var(--button-background-color);
+    margin-bottom: 10px;
+    animation: pop 0.5s ease forwards;
+  }
+  
+  /* Welcome Description */
+  .welcome-section p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    max-width: 600px; /* Limit the width for better readability */
+  }
+  
+  /* Get Started Button */
+  .get-started-btn {
+    display: inline-block;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .get-started-btn:hover {
+    background-color: var(--button-hover-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 40px 20px; /* Add padding for spacing */
+    background-color: var(--background-color); /* Set background color */
+  }
+  
+  .features-section h2 {
+    font-size: 28px;
+    color: var(--button-background-color);
+    margin-bottom: 20px;
+    text-align: center;
+    animation: pop 0.5s ease forwards;
+  }
+  
+  /* Features List */
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between feature items */
+  }
+  
+  /* Feature Item */
+  .feature-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-background-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  .feature-icon {
+    margin-right: 15px;
+    color: var(--button-background-color);
+    font-size: 24px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pop {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .welcome-section h1 {
+      font-size: 36px; /* Adjust font size for small screens */
+    }
+  
+    .welcome-section p {
+      font-size: 18px; /* Adjust font size for small screens */
+    }
+  
+    .get-started-btn {
+      font-size: 16px; /* Adjust font size for small screens */
+      padding: 10px 20px; /* Adjust padding for small screens */
+    }
+  
+    .features-section h2 {
+      font-size: 24px; /* Adjust font size for small screens */
+    }
+  }
+
+  /* Additional Styles for Features Section */
+
+/* Feature Item Image */
+.feature-image {
+    display: none; /* Hide by default */
+    width: 60px; /* Set a width for the images */
+    height: auto;
+    margin-right: 15px; /* Space between image and icon */
+  }
+  
+  /* Show feature images on larger screens */
+  @media (min-width: 800px) {
+    .feature-image {
+      display: block; /* Show images only on larger screens */
+    }
+  
+  
+    .features-list {
+      flex-direction: row; /* Align features in a row */
+      flex-wrap: wrap; /* Allow wrapping to next line */
+      justify-content: center; /* Center items */
+      gap: 30px; /* Add spacing between feature items */
+    }
+  }
+/* Additional Styles for Features Section */
+
+/* Feature Item Image */
+.feature-image {
+    display: none; /* Hide by default */
+    width: 60px; /* Set a width for the images */
+    height: auto;
+    margin-right: 15px; /* Space between image and icon */
+  }
+  
+  /* Show feature images on larger screens */
+  @media (min-width: 800px) {
+    .feature-image {
+      display: block; /* Show images only on larger screens */
+    }
+  
+    .features-list {
+      flex-direction: row; /* Align features in a row */
+      flex-wrap: wrap; /* Allow wrapping to next line */
+      justify-content: center; /* Center items */
+      gap: 30px; /* Add spacing between feature items */
+    }
+  }
+    
+  

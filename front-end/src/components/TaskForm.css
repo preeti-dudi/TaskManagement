@@ -1,0 +1,151 @@
+.task-form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .task-input {
+    margin-bottom: 16px;
+  }
+  
+  .task-input input ,
+  .task-input input:focus, .task-input input:hover,
+  .ant-picker-outlined:hover,  .ant-picker-outlined:focus,
+  .ant-select, .ant-select:hover,
+  .ant-select-selector, .ant-select-selector:hover,
+  .ant-select,
+  .ant-picker  {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .ant-select-selection-item,
+  .ant-select-selection-item-remove .anticon{
+    background-color: var(--background-color) !important;
+    color: var(--text-color);
+  }
+  
+  .task-input input::placeholder {
+    color: var(--icon-color);
+  }
+  
+  .color-picker {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .color-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid;
+    transition: border 0.3s;
+  }
+  
+  .color-circle.selected {
+    border-color: var(--button-background-color);
+  }
+  
+  .space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .repeat-details {
+    margin-bottom: 16px;
+  }
+  
+  h4 {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  h4 .ant-btn {
+    padding: 0;
+    margin-left: 10px;
+  }
+  
+  .subtask-section {
+    margin-bottom: 16px;
+  }
+  
+  .subtask-input {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .subtask-input input {
+    flex: 1;
+  }
+  
+  .form-actions {
+    text-align: right;
+  }
+  
+  .ant-btn-primary {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: var(--button-hover-color);
+  }
+  
+  .ant-modal-content {
+    background-color: var(--card-background-color) !important;
+    color: var(--text-color) !important;
+  }
+  
+  .ant-modal-header {
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .ant-modal-footer .ant-btn {
+    background-color: var(--button-background-color);
+    border-color: var(--button-background-color);
+    color: var(--button-text-color);
+  }
+  
+  .ant-btn:hover {
+    background-color: var(--button-hover-color);
+  }
+  
+  /* Switch and Toggles */
+  .toggle label {
+    font-size: 16px;
+    color: var(--text-color);
+  }
+  
+  .task-form .ant-switch-checked {
+    background-color: var(--button-background-color);
+  }
+  
+  .ant-select-arrow,
+  .ant-picker-suffix {
+    color: var(--icon-color);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .task-form {
+      padding: 16px;
+    }
+  }
+  

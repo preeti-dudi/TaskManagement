@@ -1,0 +1,61 @@
+/* General Styles */
+.task-list {
+    width: 100%;
+    padding: 1rem;
+}
+
+
+.light-theme {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.light-theme .ant-list {
+    background-color: var(--card-background-color);
+    border-color: var(--border-color);
+}
+
+.dark-theme {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark-theme .ant-list {
+    background-color: var(--card-background-color);
+    border-color: transparent;
+}
+
+/* Heading Styles */
+h2 {
+    color: inherit; /* Inherit color from the theme */
+}
+
+/* Modal Styles */
+.ant-modal-content {
+    background-color: var(--card-background-color) !important;
+    color: var(--text-color) !important;
+}
+
+.ant-modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Button Styles */
+.ant-btn {
+    color: var(--button-text-color);
+}
+
+.ant-btn-primary {
+    background-color: var(--button-background-color);
+    border-color: var(--button-background-color);
+}
+
+.ant-btn-primary:hover,.ant-btn:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Ant List Header */
+.ant-list-header {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+}

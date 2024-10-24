@@ -1,171 +1,101 @@
-:root{
-  --primaryColor: #007bff;
-  --red: #dc3545;
-  --secondaryColor : #ccc;
+/* Global theme styles */
+body[data-theme='light'] {
+    --background-color: #f9fafb;
+    --text-color: #374151;
+    --card-background-color: #ffffff;
+    --border-color: #d1d5db;
+    --button-background-color: #3b82f6;
+    --button-text-color: #ffffff;
+    --button-hover-color: #2563eb;
+    --icon-color: #6b7280;
+    --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid var(--secondaryColor);
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: var(--secondaryColor);
+body[data-theme='dark'] {
+    --background-color: #1f2937;
+    --text-color: #e5e7eb;
+    --card-background-color: #374151;
+    --border-color: #4b5563;
+    --button-background-color: #10b981;
+    --button-text-color: #f0fdf4;
+    --button-hover-color: #059669;
+    --icon-color: #9ca3af;
+    --shadow-color: rgba(0, 0, 0, 0.25);
 }
 
-input,textarea,select {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid var(--secondaryColor);
-  border-radius: 4px;
-  font-size: 16px;
+/* Global reset and layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.app-button {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--primaryColor);
-  color: var(--secondaryColor);
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: var(--primaryColor);
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 
-/* Header.css */
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: var(--primaryColor);
-  color: var(--secondaryColor);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Buttons */
+.ant-btn {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.header-title {
-  font-size: 24px;
-  font-weight: bold;
+.ant-btn:hover {
+    background-color: var(--button-hover-color);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.navbar {
-  display: flex;
-  gap: 20px;
+.anticon:hover {
+    color: var(--button-background-color);
 }
 
-.nav-link {
-  color: var(--secondaryColor);
-  text-decoration: none;
-  font-size: 16px;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+/* Typography */
+.ant-typography-title {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-size: 24px;
+    text-align: center;
 }
 
-.nav-link:hover {
-  background-color: var(--primaryColor);
-}
-.link {
-  color: var(--secondaryColor);
-  background-color: var(--primaryColor);
-  text-decoration: none;
-  font-size: 16px;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+/* Collapse Panel */
+.ant-collapse-header {
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
 }
 
-.flex{
-  display: flex;
-  flex-wrap: wrap;
+.ant-collapse-content {
+    background-color: var(--card-background-color);
+    border-top: 1px solid var(--border-color);
+    padding: 20px;
 }
 
-.task-item{
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.ant-collapse-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 12px;
 }
 
-.pending{
-  background-color: #c112;
-  border: 1px solid #c11;
-}
-.in-progress{
-  background-color: #cc12;
-  border: 1px solid #dd1;
-}
-.completed{
-  background-color: #1c12;
-  border: 1px solid #1c1;
+/* Modern hover effects for dark mode */
+body[data-theme='dark'] .task-item:hover {
+    box-shadow: 0px 12px 24px var(--shadow-color);
 }
 
-.task-list-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
+body[data-theme='dark'] .ant-btn {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
 }
 
-
-.task-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.edit-button,
-.delete-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #666;
-  transition: color 0.3s;
-}
-
-.edit-button:hover,
-.delete-button:hover {
-  background-color: var(--secondaryColor);
-}
-
-.edit-button {
-  color: var(--primaryColor); 
-}
-
-.delete-button {
-  color: var(--red); /* Red */
-}
-
-.sort-options {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 1rem;
-  align-items: center;
-  margin-bottom: 20px;
-  gap: 20px;
-}
-
-.sort-options label {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.sort-options select {
-  margin-left: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid var(--secondaryColor);
-  font-size: 16px;
+body[data-theme='dark'] .ant-btn:hover {
+    background-color: var(--button-hover-color);
 }

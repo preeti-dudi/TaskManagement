@@ -1,0 +1,64 @@
+/* Header.css */
+
+/* Global reset for the header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--card-background-color);
+    box-shadow: 0px 2px 4px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Header title styles */
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Toggle switch container styles */
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Input checkbox styles */
+.toggle-input {
+    position: absolute;
+    appearance: none; /* Hide default checkbox */
+    width: 40px;
+    height: 20px;
+    background-color: var(--button-background-color);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+/* Switch ball styles */
+.toggle-input::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+/* Switch checked styles */
+.toggle-input:checked {
+    background-color: var(--button-hover-color);
+}
+
+.toggle-input:checked::before {
+    transform: translateX(20px); /* Move the switch ball to the right */
+}
+

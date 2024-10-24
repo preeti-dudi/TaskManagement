@@ -1,44 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css'; // Ensure you have appropriate styles
 
 const Header = () => {
-    const [authenticated,setAuthenticated] = useState(false);
+    const [isDarkTheme, setIsDarkTheme] = useState<boolean>(() => {
+        const savedTheme = localStorage.getItem("theme");
+        return savedTheme === "dark";
+    });
 
-    useEffect(()=>{
-        const token = localStorage.getItem('token');
-        if (token) {
-            setAuthenticated(true);
-        }
-    },[]);
-
-    const handleLogout = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            localStorage.removeItem('token');
-            localStorage.removeItem('refreshToken');
-            setAuthenticated(false);
-            window.location.href="/login";
-            alert('Logged out successfully!');
-        } catch (error) {
-            alert('Logout failed!');
-        }
+    const toggleTheme = () => {
+        setIsDarkTheme((prev) => !prev);
     };
+
+    useEffect(() => {
+        const theme = isDarkTheme ? "dark" : "light";
+        document.body.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [isDarkTheme]);
 
     return (
         <div className="header">
-            <div className="header-title">Tasky</div>
-            {
-                authenticated ?
-                <div className="navbar">
-                    <Link to="/tasks" className="nav-link">My Tasks</Link>
-                    <button onClick={handleLogout} className="app-button nav-link">Logout</button>
-                </div>
-                :
-                <div className="navbar">
-                    <Link to="/login" className="nav-link">Login</Link>
-                    <Link to="/register" className="nav-link">Register</Link>
-                </div>
-            }
+            <Link to="/" className="header-title">Tasky</Link>
+            {/* <div className="toggle-switch">
+                <input
+                    type="checkbox"
+                    checked={isDarkTheme}
+                    onChange={toggleTheme}
+                    className="toggle-input"
+                    id="theme-toggle" // Ensure this ID is unique and matches the label
+                    aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} mode`} // ARIA label for accessibility
+                />
+            </div> */}
         </div>
     );
 };
