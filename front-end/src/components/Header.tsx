@@ -21,7 +21,7 @@ const Header = () => {
     return (
         <div className="header">
             <Link to="/" className="header-title">Tasky</Link>
-            {/* <div className="toggle-switch">
+            <div className="toggle-switch">
                 <input
                     type="checkbox"
                     checked={isDarkTheme}
@@ -30,7 +30,7 @@ const Header = () => {
                     id="theme-toggle" // Ensure this ID is unique and matches the label
                     aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} mode`} // ARIA label for accessibility
                 />
-            </div> */}
+            </div>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 /* Global theme styles */
 body[data-theme='light'] {
-    --background-color: #f9fafb;
+    --background-color: #efefff;
     --text-color: #374151;
     --card-background-color: #ffffff;
     --border-color: #d1d5db;

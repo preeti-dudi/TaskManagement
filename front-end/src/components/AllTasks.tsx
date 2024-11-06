@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, List, Modal, Typography } from 'antd';
+import { Button, Empty, List, Modal, Typography } from 'antd';
 import TaskForm from './TaskForm';
 import { Task } from './TaskTypes';
 import TaskCard from './TaskCard';
@@ -90,7 +90,14 @@ const AllTasks: React.FC = () => {
           );
         }}
         dataSource={tasks}
-        
+        locale={{
+          emptyText: (
+              <Empty 
+                  description="No tasks found. Start by adding a new task!" 
+                  image={Empty.PRESENTED_IMAGE_SIMPLE} // Use a simpler image, or customize further
+              />
+          ),
+      }}
       />
     </div>
   );

@@ -5,6 +5,7 @@ import Home from './components/Home';
 import MyTasks from './components/MyTasks';
 import AllTasks from './components/AllTasks';
 import Header from './components/Header';
+import ContactForm from './components/Footer';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/tasks/my" element={<MyTasks />} />
           <Route path="/tasks" element={<AllTasks />} />
         </Routes>
+        <ContactForm />
       </Router>
     </div>
   );

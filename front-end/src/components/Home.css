@@ -80,6 +80,7 @@
     align-items: center;
     background-color: var(--card-background-color);
     padding: 15px;
+    max-width: 350px;
     border-radius: 8px;
     box-shadow: 0 2px 8px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -173,28 +174,6 @@
       gap: 30px; /* Add spacing between feature items */
     }
   }
-/* Additional Styles for Features Section */
 
-/* Feature Item Image */
-.feature-image {
-    display: none; /* Hide by default */
-    width: 60px; /* Set a width for the images */
-    height: auto;
-    margin-right: 15px; /* Space between image and icon */
-  }
-  
-  /* Show feature images on larger screens */
-  @media (min-width: 800px) {
-    .feature-image {
-      display: block; /* Show images only on larger screens */
-    }
-  
-    .features-list {
-      flex-direction: row; /* Align features in a row */
-      flex-wrap: wrap; /* Allow wrapping to next line */
-      justify-content: center; /* Center items */
-      gap: 30px; /* Add spacing between feature items */
-    }
-  }
     
   

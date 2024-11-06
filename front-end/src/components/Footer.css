@@ -1,0 +1,35 @@
+.footer {
+    background-color: var(--card-background-color);
+    color: var(--text-color);
+    padding: 40px 20px;
+    padding-bottom: 0;
+    text-align: left;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    font-weight: 500;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer-icons a {
+    font-size: 20px;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+.footer-icons a:hover {
+    color: #1890ff;
+}
+
+.contact-form .ant-form-item-label > label {
+    color: var(--text-color);
+}
+

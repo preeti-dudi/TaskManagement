@@ -17,7 +17,7 @@
   .ant-select, .ant-select:hover,
   .ant-select-selector, .ant-select-selector:hover,
   .ant-select,
-  .ant-picker  {
+  .ant-picker {
     width: 100%;
     padding: 10px;
     border: 1px solid var(--border-color);
@@ -32,7 +32,7 @@
     color: var(--text-color);
   }
   
-  .task-input input::placeholder {
+  .task-input input::placeholder, .ant-picker-input input::placeholder {
     color: var(--icon-color);
   }
   
@@ -108,7 +108,7 @@
     background-color: var(--button-hover-color);
   }
   
-  .ant-modal-content {
+  .ant-modal-content, .ant-modal-title, .ant-modal-close-icon {
     background-color: var(--card-background-color) !important;
     color: var(--text-color) !important;
   }
@@ -140,6 +140,11 @@
   .ant-select-arrow,
   .ant-picker-suffix {
     color: var(--icon-color);
+  }
+
+  .ant-modal .ant-modal-header{
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
   
   /* Responsive design */

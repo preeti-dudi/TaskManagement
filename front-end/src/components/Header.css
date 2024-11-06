@@ -42,14 +42,19 @@
     margin-right: 10px; /* Space between checkbox and label */
 }
 
+
 /* Switch ball styles */
 .toggle-input::before {
-    content: '';
+    content: '☀';
+    color: #FFA500; /* Sun color */
+    margin-top: 1px;
+    font-size: 16px;
+    line-height: 16px;
     display: block;
     width: 18px;
     height: 18px;
-    background-color: white;
-    border-radius: 50%;
+    background-color: #fff;
+    border-radius: 9px;
     transition: transform 0.3s;
 }
 
@@ -59,6 +64,10 @@
 }
 
 .toggle-input:checked::before {
+    content: '🌙';
+    font-size: 16px;
+    line-height: 16px;
+    background-color: #000;
     transform: translateX(20px); /* Move the switch ball to the right */
 }
 
