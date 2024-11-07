@@ -1,7 +1,7 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
 import { Form, Input, Button, message, Row, Col } from 'antd';
-import { FacebookOutlined, TwitterOutlined, InstagramOutlined, LinkedinOutlined, MailOutlined, PhoneOutlined, GlobalOutlined, GithubOutlined } from '@ant-design/icons';
+import {InstagramOutlined, LinkedinOutlined, GlobalOutlined, GithubOutlined } from '@ant-design/icons';
 import './Footer.css';
 
 const ContactForm: React.FC = () => {

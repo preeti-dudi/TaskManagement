@@ -47,11 +47,13 @@
 .toggle-input::before {
     content: '☀';
     color: #FFA500; /* Sun color */
-    margin-top: 1px;
-    font-size: 16px;
-    line-height: 16px;
+    margin: 1px;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
     display: block;
     width: 18px;
+    height: 18px;
     height: 18px;
     background-color: #fff;
     border-radius: 9px;
@@ -65,8 +67,13 @@
 
 .toggle-input:checked::before {
     content: '🌙';
-    font-size: 16px;
-    line-height: 16px;
+    margin: 1px;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    display: block;
+    width: 18px;
+    height: 18px;
     background-color: #000;
     transform: translateX(20px); /* Move the switch ball to the right */
 }
